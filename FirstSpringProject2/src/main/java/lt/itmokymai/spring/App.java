@@ -55,6 +55,10 @@ public class App
     	 	.forEach(prod->System.out.println(prod.getTitle()+ 
     	 			" "+prod.getQuantity()));
     	System.out.println("+++ServiceC pl+++"); 
+    	
+    	System.out.println("-----spausdintuvas----");
+    	serviceC.sp.spausdintiProduktus(serviceC.getPl());
+    	System.out.println(serviceC.spaudsinti());
     	((ConfigurableApplicationContext) context).close();
     	
     	

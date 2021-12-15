@@ -15,6 +15,9 @@ public class ServiceC extends ServiceA{
 	@Qualifier("prodlist")
     ProdList pl;
 	
+	@Autowired
+	Spausdintuvas sp;
+	
 	public ServiceC() {
 		super();
 	}
@@ -39,4 +42,8 @@ public class ServiceC extends ServiceA{
  		this.pl = prodlist;
  	}
 
+ 	
+ 	public String spaudsinti() {
+ 		return sp.getProductTitles(pl);
+ 	}
 }
