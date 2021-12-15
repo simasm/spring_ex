@@ -8,7 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 public class ServiceC extends ServiceA{
- 
+	@Autowired
+	@Qualifier("productlist")
 	private List<Object> productList;
 	@Autowired
 	@Qualifier("prodlist")

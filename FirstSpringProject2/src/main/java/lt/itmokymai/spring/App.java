@@ -3,7 +3,8 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import org.springframework.context.ApplicationContext; 
-import org.springframework.context.ConfigurableApplicationContext; 
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext; 
 /**
  * Hello world!
@@ -13,9 +14,13 @@ public class App
 {
     public static void main( String[] args )
     {
-   
-    	ApplicationContext context = new ClassPathXmlApplicationContext (
-    			"application-context.xml");
+ 
+   	ApplicationContext context = new ClassPathXmlApplicationContext (
+   			"application-context.xml");
+    //veikia ir su annotationconfigctxx
+//    	ApplicationContext context = new AnnotationConfigApplicationContext(
+//    			AppConfig.class);
+//    			
 //    	ServiceA serviceA = (ServiceA) context.getBean("serviceA");
 //    	ServiceB serviceB = (ServiceB) context.getBean("serviceB");
 //    	System.out.println(serviceB.getResult());
@@ -38,7 +43,7 @@ public class App
     	//class prodlist list
     	System.out.println("===prodlist===");
     	
-    	ProdList prodlist = (ProdList) context.getBean("Prodlist");
+    	ProdList prodlist = (ProdList) context.getBean("prdlst");
     	prodlist.getProdlist()
     		.forEach(prod->System.out.println(prod.getTitle() + " " +
     	prod.getPrice()));

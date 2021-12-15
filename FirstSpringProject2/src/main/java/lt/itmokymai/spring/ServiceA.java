@@ -2,11 +2,16 @@ package lt.itmokymai.spring;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.config.BeanPostProcessor;
+import org.springframework.stereotype.Component;
 
-
+@Component
 public class ServiceA implements DisposableBean{
 
+	@Qualifier("msg")
+	@Autowired
 	private String message;
 	
 	public String getResult() {

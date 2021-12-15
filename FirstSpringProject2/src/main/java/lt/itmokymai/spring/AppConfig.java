@@ -1,6 +1,8 @@
 package lt.itmokymai.spring;
 
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.config.BeanPostProcessor;
+import org.springframework.beans.factory.config.DestructionAwareBeanPostProcessor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -26,13 +28,31 @@ public class AppConfig {
 	
 	@Qualifier("prodlist")
 	@Bean
-	ProdList beanProdList() {
+	ProdList prdlst() {
 		return new ProdList();
 	}
 	
+	 
+	@Bean
+	@Qualifier("productlist")
+	Product prod1() {
+		return new Product("limonadas",12,22);
+	}
+	
+ 
+	@Bean
+	@Qualifier("productlist")
+	Product prod2() {
+		return new Product("alus",3,5);
+	}
 	
 	@Bean
-	Product prod1() {
-		return new Product();
+	BeanProcessor beanProcessor() {
+		return new BeanProcessor();
+	}
+	@Qualifier("msg")
+	@Bean
+	String message() {
+		return "bean message";
 	}
 }
