@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+<!-- 	<context:annotation-config />   -->
+	<!-- bean definitions go here -->
+	
+	<context:component-scan base-package="lt.itmokymai.spring"/>
+
+<!-- 	
+	<bean id="serviceA" class="lt.itmokymai.spring.ServiceA"
+		destroy-method="destroy">
+		<property name="message" value="ServiceA messagee" />
+	</bean> <bean id="plist" class="lt.itmokymai.spring.ProductList"> <property 
+		name="products"> <list> <ref bean="product1"/> <value>1</value> <bean class="lt.itmokymai.spring.Product"> 
+		<property name="title" value="Braske" /> <property name="quantity" value="1" 
+		/> <property name="price" value="9.2" /> </bean> </list> </property> </bean> 
+ 
+
+ 
+	<bean id="beanProcessor" class="lt.itmokymai.spring.BeanProcessor"
+		scope="singleton" />
+
+
+	<bean id="beanPrinter" class="lt.itmokymai.spring.BeanPrinter" />
+
+
+	<bean id="serviceC" class="lt.itmokymai.spring.ServiceC"
+		parent="serviceA">
+		<property name="productList">
+			<list>
+
+				<ref bean="product1" />
+				<bean class="lt.itmokymai.spring.Product">
+					<property name="title" value="listObuolys" />
+					<property name="price" value="666" />
+					<property name="quantity" value="777" />
+				</bean>
+			</list>
+		</property>
+		<property name="pl" ref="Prodlist" />
+
+
+	</bean>
+	
+		<bean id="Prodlist" class="lt.itmokymai.spring.ProdList">
+		<property name="prodlist">
+			<list>
+				<ref bean="product1" />
+				<bean class="lt.itmokymai.spring.Product">
+					<property name="title" value="listObuolys" />
+					<property name="price" value="666" />
+					<property name="quantity" value="777" />
+				</bean>
+			</list>
+		</property>
+
+	</bean>
+	
+
+	<bean id="product" class="lt.itmokymai.spring.Product" />
+
+	<bean id="product1" class="lt.itmokymai.spring.Product">
+		<property name="title" value="Obuolys" />
+		<property name="quantity" value="10" />
+		<property name="price" value="2.2" />
+
+	</bean>
+
+
+	<bean id="product2" class="lt.itmokymai.spring.Product">
+		<property name="title" value="Bananas" />
+		<property name="quantity" value="12" />
+		<property name="price" value="5.2" />
+	</bean>
+
+
+	<bean class="lt.itmokymai.spring.Product">
+		<property name="title" value="Stalas" />
+		<property name="quantity" value="11" />
+		<property name="price" value="222.2" />
+	</bean>
+
+
+
+
+ -->
+</beans>
+ 
+ 
