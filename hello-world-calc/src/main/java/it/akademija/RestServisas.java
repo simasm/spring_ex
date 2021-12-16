@@ -14,7 +14,7 @@ public class RestServisas {
 	
 	@RequestMapping("/productCollection")
  	public String productCollection() {
-		return "["+prodlist.getProdlist()
+		return "[ "+prodlist.getProdlist()
 				.stream()
 				.map(product -> product.getTitle() + " ")
 				.reduce("", String::concat) +"]";

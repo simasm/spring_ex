@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 
 public class ProdList {
 	@Autowired
-	@Qualifier("productlist")
     private List<Product> prodlist;
     
     public ProdList() {

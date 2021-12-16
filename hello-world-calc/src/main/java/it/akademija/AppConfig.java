@@ -3,12 +3,13 @@ package it.akademija;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ImportResource;
 
  
 
  
 
-
+@ImportResource({"classpath*:application-context.xml"})
 @Configuration
 public class AppConfig {
 	 
@@ -20,25 +21,25 @@ public class AppConfig {
 	}
 	
 	 
-	 
+	@Bean
+	UserDao userDao() {
+		return new InMemoryUserDao();
+	}
 	
 	
 	@Bean
-	@Qualifier("productlist")
 	Product prod1() {
 		return new Product("limonadas",12,22);
 	}
 	
  
 	@Bean
-	@Qualifier("productlist")
 	Product prod2() {
 		return new Product("alus",3,5);
 	}
 	
 
 	@Bean
-	@Qualifier("productlist")
 	Product prod3() {
 		return new Product("arbata",3,5);
 	}

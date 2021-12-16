@@ -17,6 +17,6 @@ public class Spausdintuvas {
 		return pl.getProdlist().stream()
 				.map(product -> product.getTitle())
 				.reduce("",String::concat);
-	}
+	} 
 
 }
