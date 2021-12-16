@@ -6,7 +6,7 @@ import static org.hamcrest.CoreMatchers.is;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.internal.runners.JUnit4ClassRunner;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,7 +15,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import com.jayway.restassured.RestAssured;
 
 @SpringBootTest(classes = App.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@RunWith(JUnit4ClassRunner.class)
+@RunWith(SpringJUnit4ClassRunner.class)
  public class HelloControllerTest {
     @Value("${local.server.port}")
     int port;
