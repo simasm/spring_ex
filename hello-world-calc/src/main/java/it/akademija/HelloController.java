@@ -1,9 +1,7 @@
 package it.akademija;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
+ import lombok.Data;
+ 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -28,6 +26,7 @@ public class HelloController {
 		private final int left;
         private final int right;
         private final long answer;
+        
         public Result(int left, int right, long answer) {
         	this.left = left;
         	this.right = right;

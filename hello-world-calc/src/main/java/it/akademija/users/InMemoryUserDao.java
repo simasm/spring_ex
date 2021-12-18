@@ -1,4 +1,4 @@
-package it.akademija;
+package it.akademija.users;
 
 import java.util.Collections;
 import java.util.List;
@@ -24,9 +24,9 @@ public class InMemoryUserDao implements UserDao {
 	}
 
 	@Override
-	public void deleteUser(String username) {
-		
-		users.remove(users.stream()
+	public boolean deleteUser(String username) {
+		 
+		return users.remove(users.stream()
 				.filter(user -> user.getUsername()
 									.equals(username))
 				.findFirst().orElse(null));

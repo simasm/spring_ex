@@ -1,4 +1,4 @@
-package it.akademija;
+package it.akademija.users;
 
 import java.util.List;
 
@@ -6,5 +6,5 @@ public interface UserDao {
 	List<User> getUsers();
 	void createUser(User user);
 	
-	void deleteUser(String username);
+	boolean deleteUser(String username);
 }

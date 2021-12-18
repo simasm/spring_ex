@@ -1,23 +1,20 @@
-package it.akademija;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Required;
+package it.akademija.products;
+ 
 
 public class Product {
-
+	private static long idgen = 0;
+	private long id;
 	private long quantity;
 	private double price;
 	private String title;
 	
-	public Product() {
-		
-	}
+	public Product() { }
 	public Product(String title, long quantity, double price) {
 		super();
 		this.title = title;
 		this.quantity = quantity;
 		this.price = price;
+		this.id = idgen++;;
 	}
 	
 	
@@ -50,4 +47,10 @@ public class Product {
  	public void setPrice(double price) {
 		this.price = price;
 	}
+ 	
+ 	public long getId() {
+ 		return this.id;
+ 	}
+ 	
+ 
 }

@@ -1,10 +1,10 @@
-package it.akademija;
+package it.akademija.users;
 
-import java.util.Collections;
-import java.util.List;
+ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,9 +24,8 @@ public class UserController {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public List<User> getUsers() {
-		System.out.println("get = " + userDao.getUsers().size());
+	 
 		return userDao.getUsers();
-		
 	
 	}
 	
@@ -34,10 +33,17 @@ public class UserController {
 	@ResponseStatus(HttpStatus.CREATED)
 	public void createUser(@RequestBody final CreateUserCommand cmd) {
 		userDao.createUser(new User(cmd.getUsername(),
-							cmd.getEmail(),
-							cmd.getFirstName()));
-		System.out.println(cmd);
-		System.out.println(cmd.getFirstName());
+									cmd.getFirstName(),
+									cmd.getEmail()
+									));
+		System.out.println("created " + cmd.getUsername());
 	}
 	
+	@RequestMapping(method = RequestMethod.DELETE, path = "/{username}")
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	 public void deleteUser(@PathVariable final String username) {
+		
+		 System.out.println("Deleted: " + username +
+				 " " +  userDao.deleteUser(username));
+	 }
 }

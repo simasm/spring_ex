@@ -1,17 +1,10 @@
-package it.akademija;
+package it.akademija.users;
 
-public final class User {
-
+public class CreateUserCommand {
+	
 	private String username;
 	private String firstName;
 	private String email;
-	
-	public User() { }
-	public User(String username, String firstName, String email) {
-		this.username = username;
-		this.firstName = firstName;
-		this.email = email;
-	}
 	
 	public String getUsername() {
 		return username;
@@ -31,4 +24,7 @@ public final class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	 
+	
 }
