@@ -1,8 +1,7 @@
 package lt.itmokymai.spring;
 
 import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.config.BeanPostProcessor;
-import org.springframework.beans.factory.config.DestructionAwareBeanPostProcessor;
+ import org.springframework.beans.factory.config.DestructionAwareBeanPostProcessor;
 
 public class BeanProcessor implements DestructionAwareBeanPostProcessor{
 	@Override

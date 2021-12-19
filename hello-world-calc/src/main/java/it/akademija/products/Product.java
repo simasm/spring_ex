@@ -23,10 +23,8 @@ public class Product {
 	}
 	
 	 
-	public void setProduct( long quant,
-							double price, 
-							String title ) {
-		this.quantity = quant;
+	public void setProduct( String title, long quantity, double price) {
+		this.quantity = quantity;
 		this.price = price;
 		this.title = title;
 	}
