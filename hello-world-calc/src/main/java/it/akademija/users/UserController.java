@@ -4,6 +4,7 @@ package it.akademija.users;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +23,7 @@ public class UserController {
 		this.userDao = userDao;
 	}
 	
+	@CrossOrigin(origins = "http://localhost:3000")
 	@RequestMapping(method = RequestMethod.GET)
 	public List<User> getUsers() {
 	 
@@ -29,16 +31,19 @@ public class UserController {
 	
 	}
 	
+	@CrossOrigin(origins = "http://localhost:3000")
 	@RequestMapping(method = RequestMethod.POST) 
 	@ResponseStatus(HttpStatus.CREATED)
 	public void createUser(@RequestBody final CreateUserCommand cmd) {
-		userDao.createUser(new User(cmd.getUsername(),
-									cmd.getFirstName(),
-									cmd.getEmail()
+		int size = userDao.getUsers().size();
+ 		userDao.createUser(new User(cmd.getUsername() 
+	 
 									));
-		System.out.println("created " + cmd.getUsername());
+ 		if(size < userDao.getUsers().size())
+ 			System.out.println("created " + cmd.getUsername());
 	}
 	
+	@CrossOrigin(origins = "http://localhost:3000")
 	@RequestMapping(method = RequestMethod.DELETE, path = "/{username}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	 public void deleteUser(@PathVariable final String username) {

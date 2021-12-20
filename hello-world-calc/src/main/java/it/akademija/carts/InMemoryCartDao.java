@@ -1,0 +1,33 @@
+package it.akademija.carts;
+
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class InMemoryCartDao implements CartDao {
+
+	private final Map<String, List<Long>> carts = new ConcurrentHashMap<>();
+
+	@Override
+	public Map<String, List<Long>> getCarts() {
+
+		return Collections.unmodifiableMap(carts);
+	}
+
+	@Override
+	public void addCart(String username, List<Long> cart) {
+		carts.put(username, cart);
+
+	}
+
+	@Override
+	public void removeCart(String username) {
+		carts.remove(username);
+
+	}
+
+}
