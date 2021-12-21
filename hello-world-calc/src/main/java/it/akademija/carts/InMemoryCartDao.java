@@ -1,5 +1,6 @@
 package it.akademija.carts;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -28,6 +29,13 @@ public class InMemoryCartDao implements CartDao {
 	public void removeCart(String username) {
 		carts.remove(username);
 
+	}
+
+	@Override
+	public List<Long> getCart(String username) {
+		 if(carts.get(username)==null)
+			 return new ArrayList<>();
+		return carts.get(username);
 	}
 
 }

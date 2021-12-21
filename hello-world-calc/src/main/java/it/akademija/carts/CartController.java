@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -38,5 +39,11 @@ public class CartController {
 	public void createCart(@RequestBody final CreateCartCommand cmd ) {
 		System.out.println(cmd.getCart());
 		 cartDao.addCart(cmd.getUsername(), cmd.getCart());
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, path = "/{username}")
+	public List<Long> getUserCart(@PathVariable final String username) {
+		System.out.println(username + " requested cart");
+		return cartDao.getCart(username);
 	}
 }

@@ -2,7 +2,7 @@ package it.akademija.products;
  
 
 public class Product {
-	private static long idgen = 0;
+	private static long idgen = 1;
 	private long id;
 	private long quantity;
 	private double price;

@@ -19,7 +19,8 @@ public class InMemoryUserDao implements UserDao {
 	
 	@Override
 	public void createUser(User user) {
-		if(!users.stream()
+		if(user != null)
+			if(!users.stream()
 				.anyMatch(usr -> usr.getUsername()
 						.equals(user.getUsername())))
 			users.add(user);
